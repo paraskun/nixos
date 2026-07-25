@@ -7,6 +7,7 @@
     ../../modules/sys/base.nix
     ../../modules/desktop/hyprland.nix
     ../../modules/svc/ssh.nix
+    ../../modules/svc/openvpn.nix
 
     ../../home/paraskun
   ];

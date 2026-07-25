@@ -20,6 +20,7 @@
       packages = with pkgs; [
         telegram-desktop
         neovim
+        opencode
       ];
 
       sessionVariables = {
