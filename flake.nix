@@ -2,10 +2,15 @@
   description = "Atomic operating system";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-  }
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
 
-  outputs = { self, nixpkgs }: {
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+  };
+
+  outputs = { self, nixpkgs, home-manager }: {
     nixosConfigurations = {
       
       panda = nixpkgs.lib.nixosSystem {
@@ -13,6 +18,7 @@
 
         modules = [
           ./hosts/panda
+          home-manager.nixosModules.home-manager
         ];
       };
 
