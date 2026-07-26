@@ -1,9 +1,14 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.git = {
     enable = true;
-    userName = "Ivan Paraskun";
-    userEmail = "ig.paraskun@gmail.com";
+
+    settings = {
+      user = {
+        name = "Ivan Paraskun";
+        email = "ig.paraskun@gmail.com";
+      };
+    };
   };
 }

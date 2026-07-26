@@ -11,6 +11,7 @@
     ../../modules/svc/ssh.nix
     ../../modules/svc/openvpn.nix
     ../../modules/svc/tailscale.nix
+    ../../modules/svc/syncthing.nix
 
     (import ../../home/paraskun { inherit config lib pkgs; hostName = "panda"; })
   ];

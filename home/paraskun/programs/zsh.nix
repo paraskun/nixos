@@ -1,11 +1,11 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
 
     sessionVariables = {
       EDITOR = "nvim";
