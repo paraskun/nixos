@@ -1,6 +1,10 @@
 { pkgs, ... }:
 
 {
+  imports = [
+    ./programs/nvim.nix
+  ];
+
   users.users.paraskun = {
     isNormalUser = true;
     extraGroups = [
@@ -19,7 +23,6 @@
 
       packages = with pkgs; [
         telegram-desktop
-        neovim
         opencode
       ];
 

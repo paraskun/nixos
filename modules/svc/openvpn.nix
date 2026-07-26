@@ -3,6 +3,7 @@
     ltx = {
       config = '' config /root/nixos/openvpn/ltx.conf '';
       updateResolvConf = true;
+      autoStart = false;
     };
   };
 }
