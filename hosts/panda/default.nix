@@ -10,6 +10,7 @@
     ../../modules/desktop/hyprland.nix
     ../../modules/svc/ssh.nix
     ../../modules/svc/openvpn.nix
+    ../../modules/svc/tailscale.nix
 
     (import ../../home/paraskun { inherit config lib pkgs; hostName = "panda"; })
   ];
