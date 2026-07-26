@@ -1,4 +1,4 @@
-{ pkgs, hostName, ... }:
+{ config, lib, pkgs, hostName, ... }:
 
 {
   users.users.paraskun = {
@@ -12,8 +12,10 @@
 
   home-manager.users.paraskun = {
     imports = [
+      (import ./programs/hypr.nix { inherit config lib pkgs hostName; })
+
       ./programs/nvim.nix
-      ./programs/hypr.nix
+      ./programs/zsh.nix
     ];
 
     programs.home-manager.enable = true;
@@ -26,12 +28,6 @@
         telegram-desktop
         opencode
       ];
-
-      sessionVariables = {
-        EDITOR = "nvim";
-        BROWSER = "brave";
-        TERMINAL = "ghostty";
-      };
 
       stateVersion = "26.05";
     };

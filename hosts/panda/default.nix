@@ -1,17 +1,16 @@
 { config, lib, pkgs, ... }:
 
 {
-  _module.args.hostName = "panda";
-
   imports = [
     ./hardware.nix
 
     ../../modules/sys/base.nix
+    ../../modules/sys/throne.nix
     ../../modules/desktop/hyprland.nix
     ../../modules/svc/ssh.nix
     ../../modules/svc/openvpn.nix
 
-    ../../home/paraskun
+    (import ../../home/paraskun { inherit config lib pkgs; hostName = "panda"; })
   ];
 
   networking.hostName = "panda";

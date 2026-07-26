@@ -1,4 +1,4 @@
-{ pkgs, hostName, ... }:
+{ config, lib, pkgs, hostName, ... }:
 
 {
   xdg.configFile = {

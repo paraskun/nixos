@@ -11,10 +11,6 @@
   programs.gnupg.agent = {
     enable = true;
   };
-  programs.throne = {
-    enable = true;
-    tunMode.enable = true;
-  };
 
   environment.systemPackages = with pkgs; [
     vim
