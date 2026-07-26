@@ -5,6 +5,7 @@
     ./hardware.nix
 
     ../../modules/sys/base.nix
+    ../../modules/sys/zsh.nix
     ../../modules/sys/throne.nix
     ../../modules/desktop/hyprland.nix
     ../../modules/svc/ssh.nix

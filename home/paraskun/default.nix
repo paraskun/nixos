@@ -8,6 +8,7 @@
       "networkmanager"
       "docker"
     ];
+    shell = pkgs.zsh;
   };
 
   home-manager.users.paraskun = {
