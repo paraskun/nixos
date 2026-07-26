@@ -1,10 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, hostName, ... }:
 
 {
-  imports = [
-    ./programs/nvim.nix
-  ];
-
   users.users.paraskun = {
     isNormalUser = true;
     extraGroups = [
@@ -15,6 +11,11 @@
   };
 
   home-manager.users.paraskun = {
+    imports = [
+      ./programs/nvim.nix
+      ./programs/hypr.nix
+    ];
+
     programs.home-manager.enable = true;
 
     home = {

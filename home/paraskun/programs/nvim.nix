@@ -9,7 +9,7 @@
     vimAlias = true;
   };
 
-  xdg.confgFile."nvim" = {
+  xdg.configFile."nvim" = {
     source = ../dotfiles/nvim;
   };
 }

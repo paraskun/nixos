@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  _module.args.hostName = "panda";
+
   imports = [
     ./hardware.nix
 
