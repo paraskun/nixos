@@ -17,6 +17,7 @@
 
       ./programs/nvim.nix
       ./programs/zsh.nix
+      ./programs/git.nix
     ];
 
     programs.home-manager.enable = true;
