@@ -13,4 +13,9 @@
   virtualisation.docker = {
     enable = true;
   };
+
+  security.pki.certificateFiles = [
+    ../../certs/ltx-rca.crt
+    ../../certs/ltx-ca.crt
+  ];
 }
