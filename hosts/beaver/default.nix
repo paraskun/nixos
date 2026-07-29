@@ -2,8 +2,6 @@
 
 {
   imports = [
-    ./hardware.nix
-
     ../../modules/sys/macos.nix
     ../../modules/svc/ssh.nix
     ../../modules/svc/tailscale/macos.nix
@@ -14,6 +12,7 @@
 
   users.users = {
     paraskun = {
+      home = "/Users/paraskun";
       shell = pkgs.zsh;
     };
   };

@@ -10,6 +10,7 @@
   };
 
   environment.systemPackages = with pkgs; [
+    ghostty
     wofi
     wl-clipboard
   ];

@@ -57,7 +57,7 @@
 
         specialArgs = {
           nixpkgs = nixpkgs-darwin;
-          os = "nixos";
+          os = "macos";
           hostName = "beaver";
         };
 
