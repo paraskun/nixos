@@ -1,9 +1,9 @@
 { config, ... }:
 
 {
-  services.tailscale = {
-    enable = true;
-  };
+  imports = [
+    ./base.nix
+  ];
 
   networking.nftables.enable = true;
   networking.firewall = {

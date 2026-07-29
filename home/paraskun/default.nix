@@ -1,20 +1,14 @@
-{ config, lib, pkgs, hostName, ... }:
+{ pkgs, os, ... }:
 
 {
-  users.users.paraskun = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-      "docker"
-    ];
-    shell = pkgs.zsh;
-  };
+  imports = [
+    ./services/openvpn/${os}.nix
+    ./services/syncthing/${os}.nix
+  ];
 
   home-manager.users.paraskun = {
     imports = [
-      (import ./programs/hypr.nix { inherit config lib pkgs hostName; })
-
+      ./programs/hypr.nix
       ./programs/nvim.nix
       ./programs/zsh.nix
       ./programs/git.nix
@@ -25,11 +19,11 @@
 
     home = {
       username = "paraskun";
-      homeDirectory = "/home/paraskun";
 
       packages = with pkgs; [
         telegram-desktop
         opencode
+        ripgrep
       ];
 
       stateVersion = "26.05";

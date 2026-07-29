@@ -1,3 +1,5 @@
+{ ... }:
+
 {
   services.openvpn.servers = {
     ltx = {

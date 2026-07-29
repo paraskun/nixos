@@ -1,7 +1,7 @@
 { ... }:
 
 {
-  services.openssh = {
+  services.tailscale = {
     enable = true;
   };
 }

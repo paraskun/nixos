@@ -1,8 +1,10 @@
+{ config, ... }:
+
 {
   services.syncthing = {
     enable = true;
     user = "paraskun";
-    dataDir = "/home/paraskun/.syncthing";
+    dataDir = "${config.users.users.paraskun.home}/.syncthing";
     openDefaultPorts = true;
 
     overrideDevices = true;
@@ -20,7 +22,7 @@
 
       folders = {
         "vault" = {
-          path = "/home/paraskun/vault";
+          path = "${config.users.users.paraskun.home}/vault";
           devices = [ "squirrel" ];
         };
       };
