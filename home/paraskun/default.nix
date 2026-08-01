@@ -13,6 +13,8 @@
       ./programs/zsh.nix
       ./programs/git.nix
       ./programs/tmux.nix
+
+      ./programs/throne/${os}.nix
     ];
 
     programs.home-manager.enable = true;

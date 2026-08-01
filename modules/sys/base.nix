@@ -12,9 +12,11 @@
 
   environment.systemPackages = with pkgs; [
     inetutils
+    dnsutils
     vim
     curl
     git
     pass
+    btop
   ];
 }
