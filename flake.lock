@@ -73,12 +73,34 @@
         "type": "github"
       }
     },
+    "rftp": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1785643364,
+        "narHash": "sha256-rSVtqWrb+vCHTfVxae67+e/rSdp0RGzgi5qg8cQxpms=",
+        "ref": "refs/heads/main",
+        "rev": "5f643f569a533bbef98b3e1cae65a06861bd0dd2",
+        "revCount": 31,
+        "type": "git",
+        "url": "https://gitlab.eltex.loc/xpon/rftp"
+      },
+      "original": {
+        "rev": "5f643f569a533bbef98b3e1cae65a06861bd0dd2",
+        "type": "git",
+        "url": "https://gitlab.eltex.loc/xpon/rftp"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-darwin": "nixpkgs-darwin"
+        "nixpkgs-darwin": "nixpkgs-darwin",
+        "rftp": "rftp"
       }
     }
   },

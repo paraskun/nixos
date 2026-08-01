@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  services.rftp = {
+    enable = true;
+  };
+}

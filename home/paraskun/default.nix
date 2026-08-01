@@ -4,6 +4,8 @@
   imports = [
     ./services/openvpn/${os}.nix
     ./services/syncthing/${os}.nix
+
+    ./programs/throne/${os}.nix
   ];
 
   home-manager.users.paraskun = {
@@ -13,8 +15,6 @@
       ./programs/zsh.nix
       ./programs/git.nix
       ./programs/tmux.nix
-
-      ./programs/throne/${os}.nix
     ];
 
     programs.home-manager.enable = true;

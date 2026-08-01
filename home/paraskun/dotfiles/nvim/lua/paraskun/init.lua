@@ -1,5 +1,5 @@
 vim.g.mapleader = " "
-vim.g.clipboard = "osc52"
+vim.o.clipboard = "unnamedplus"
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set({"n", "v"}, "<leader>y", '"+y')

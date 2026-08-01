@@ -14,9 +14,14 @@
       url = "github:nix-darwin/nix-darwin/master";
       inputs.nixpkgs.follows = "nixpkgs-darwin";
     };
+
+    rftp = {
+      url = "git+https://gitlab.eltex.loc/xpon/rftp?rev=5f643f569a533bbef98b3e1cae65a06861bd0dd2";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nix-darwin }: {
+  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nix-darwin, rftp }: {
     nixosConfigurations = {
       panda = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
@@ -28,9 +33,11 @@
 
         modules = [
           ./hosts/panda
-
+          
           home-manager.nixosModules.home-manager
           { home-manager.extraSpecialArgs = specialArgs; }
+
+          rftp.nixosModules.rftp
         ];
       };
 
