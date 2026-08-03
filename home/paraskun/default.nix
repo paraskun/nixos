@@ -26,6 +26,7 @@
         telegram-desktop
         opencode
         ripgrep
+        lazygit
       ];
 
       stateVersion = "26.05";

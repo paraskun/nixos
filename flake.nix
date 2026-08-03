@@ -16,7 +16,7 @@
     };
 
     rftp = {
-      url = "git+https://gitlab.eltex.loc/xpon/rftp?rev=5f643f569a533bbef98b3e1cae65a06861bd0dd2";
+      url = "git+https://gitlab.eltex.loc/xpon/rftp?rev=9b4b4b5f63d95e09a84b22a00ab46db6c4f34fde";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

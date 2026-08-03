@@ -80,16 +80,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1785643364,
-        "narHash": "sha256-rSVtqWrb+vCHTfVxae67+e/rSdp0RGzgi5qg8cQxpms=",
-        "ref": "refs/heads/main",
-        "rev": "5f643f569a533bbef98b3e1cae65a06861bd0dd2",
+        "lastModified": 1785721718,
+        "narHash": "sha256-RSoQg2KnHsHRqYKDP0Pf6jrYh2tOlnX1vSYyrnpMhSk=",
+        "ref": "master",
+        "rev": "9b4b4b5f63d95e09a84b22a00ab46db6c4f34fde",
         "revCount": 31,
         "type": "git",
         "url": "https://gitlab.eltex.loc/xpon/rftp"
       },
       "original": {
-        "rev": "5f643f569a533bbef98b3e1cae65a06861bd0dd2",
+        "rev": "9b4b4b5f63d95e09a84b22a00ab46db6c4f34fde",
         "type": "git",
         "url": "https://gitlab.eltex.loc/xpon/rftp"
       }

@@ -4,8 +4,22 @@
   imports = [
     ../programs/nvim.nix
     ../programs/zsh.nix
-    ../programs/git.nix
   ];
+
+  programs.git = {
+    enable = true;
+
+    settings = {
+      user = {
+        name = "Параскун Иван Григорьевич";
+        email = "ivan.paraskun@eltex.loc";
+      };
+    };
+
+    ignores = [
+      ".keys"
+    ];
+  };
 
 
   home = {
@@ -14,6 +28,7 @@
 
     packages = with pkgs; [
       ripgrep
+      lazygit
     ];
 
     stateVersion = "26.05";

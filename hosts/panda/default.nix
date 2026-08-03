@@ -6,7 +6,7 @@
 
     ../../modules/sys/nixos.nix
     ../../modules/svc/ssh.nix
-    ../../modules/svc/rftp/nixos.nix
+    # ../../modules/svc/rftp/nixos.nix
     ../../modules/svc/tailscale/nixos.nix
     ../../modules/desktop/nixos.nix
 
