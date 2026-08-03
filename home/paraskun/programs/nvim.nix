@@ -14,6 +14,8 @@
       clang-tools
       rust-analyzer
       gopls
+      ripgrep
+      tree-sitter
     ];
   };
 

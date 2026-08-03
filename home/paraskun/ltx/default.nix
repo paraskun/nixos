@@ -15,10 +15,6 @@
         email = "ivan.paraskun@eltex.loc";
       };
     };
-
-    ignores = [
-      ".keys"
-    ];
   };
 
 
