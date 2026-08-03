@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, inputs, ... }:
 
 {
   imports = [
@@ -17,5 +17,9 @@
   security.pki.certificateFiles = [
     ../../certs/ltx-rca.crt
     ../../certs/ltx-ca.crt
+  ];
+
+  environment.systemPackages = [
+    inputs.rftp.packages.${pkgs.system}.rftp
   ];
 }

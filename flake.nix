@@ -21,12 +21,22 @@
     };
   };
 
-  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nix-darwin, rftp }: {
+  outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nix-darwin, rftp }@inputs: {
+    homeConfigurations = {
+      container = home-manager.lib.homeManagerConfiguration {
+        modules = [
+          ./home/container
+        ];
+      };
+    };
+
     nixosConfigurations = {
       panda = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
 
         specialArgs = {
+          inherit inputs;
+
           os = "nixos";
           hostName = "panda";
         };
@@ -45,6 +55,8 @@
         system = "x86_64-linux";
 
         specialArgs = {
+          inherit inputs;
+
           os = "nixos";
           hostName = "whale";
         };
@@ -63,6 +75,8 @@
         system = "aarch64-darwin";
 
         specialArgs = {
+          inherit inputs;
+
           nixpkgs = nixpkgs-darwin;
           os = "macos";
           hostName = "beaver";
