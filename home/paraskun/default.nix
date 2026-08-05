@@ -4,13 +4,13 @@
   imports = [
     ./services/openvpn/${os}.nix
     ./services/syncthing/${os}.nix
-
     ./programs/throne/${os}.nix
   ];
 
   home-manager.users.paraskun = {
     imports = [
       ./programs/hypr.nix
+      ./programs/ghostty.nix
       ./programs/nvim.nix
       ./programs/zsh.nix
       ./programs/git.nix
@@ -25,7 +25,6 @@
       packages = with pkgs; [
         telegram-desktop
         opencode
-        ripgrep
         lazygit
       ];
 

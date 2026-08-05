@@ -1,22 +1,27 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
 
     config = function()
-      require("nvim-treesitter.config").setup {
-        ensure_installed = {
-          "c",
-          "cpp",
-          "go",
-          "lua",
-          "markdown",
-        },
-        auto_install = true,
+      require("nvim-treesitter").setup({})
+    end,
 
-        highlight = {
-          enable = true,
-        },
-      }
+    init = function()
+      vim.api.nvim_create_autocmd("FileType", {
+        callback = function()
+          pcall(vim.treesitter.start)
+        end
+      })
+
+      require("nvim-treesitter").install({
+        "c",
+        "cpp",
+        "go",
+        "lua",
+        "markdown",
+        "bash",
+      })
     end
   },
   {

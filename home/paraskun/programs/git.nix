@@ -10,9 +10,5 @@
         email = "ig.paraskun@gmail.com";
       };
     };
-
-    ignores = [
-      ".keys"
-    ];
   };
 }
