@@ -19,7 +19,9 @@
     ../../certs/ltx-ca.crt
   ];
 
-  # environment.systemPackages = [
-  #   inputs.rftp.packages.${pkgs.system}.rftp
-  # ];
+  environment.systemPackages = with pkgs; [
+    gcc
+
+    # inputs.rftp.packages.${pkgs.system}.rftp
+  ];
 }
