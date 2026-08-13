@@ -9,6 +9,7 @@
     # ../../modules/svc/rftp/nixos.nix
     ../../modules/svc/tailscale/nixos.nix
     ../../modules/svc/sing-box/nixos.nix
+    ../../modules/svc/transmission/nixos.nix
     ../../modules/desktop/nixos.nix
 
     ../../home/paraskun
