@@ -13,6 +13,7 @@
       font-size = 12;
       foreground = "AAAAAA";
       background = "101010";
+      app-notifications = "no-clipboard-copy";
     };
   };
 }
