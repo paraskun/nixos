@@ -1,5 +1,11 @@
 { pkgs, ... }:
 
+let
+  key = pkgs.fetchurl {
+    url = "https://github.com/paraskun.gpg";
+    sha256 = "1127jwwidvvwv9md4jpxkk0abva4cpvjpzc7zybg1f8a0jvn5mrj";
+  };
+in
 {
   environment.etc."u2f_keys".text = ''
   paraskun:GCTH0vCxAj9WjJdJ9ofw4HMgCPHgZ5DSvL5s+Er6Beee687V0YK6m5AknzreXetgOacKlDjxY7YrC2wlYeatRg==,bnRopy2vo1LpbGLb3buANfOVymDjd5YkTzo12Jic2w7m5xFZ34zRVVCGuJ2TC1SdUasel64zS9f73IzI7jwaVQ==,es256,+presence   
@@ -36,6 +42,7 @@
   };
 
   services.pcscd.enable = true;
+  services.udev.packages = [ pkgs.yubikey-personalization ];
 
   services.udev.extraRules = ''
     ACTION=="remove",\
@@ -45,10 +52,20 @@
       RUN+="${pkgs.systemd}/bin/systemctl start physlock.service"
   '';
 
+  programs.ssh.startAgent = false;
 
   home-manager.users.paraskun = {
     programs.gpg = {
       enable = true;
+
+      mutableTrust = false;
+
+      publicKeys = [
+        {
+          source = "${key}";
+          trust = "ultimate";
+        }
+      ];
 
       settings = {
         personal-cipher-preferences = "AES256 AES192 AES";
@@ -75,7 +92,7 @@
       enable = true;
 
       enableSshSupport = true;
-      pinentryPackege = pkgs.pinentry-curses;
+      pinentryPackage = pkgs.pinentry-curses;
       defaultCacheTtl = 60;
       maxCacheTtl = 300;
     };
