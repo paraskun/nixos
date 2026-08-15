@@ -11,6 +11,10 @@ in
   paraskun:GCTH0vCxAj9WjJdJ9ofw4HMgCPHgZ5DSvL5s+Er6Beee687V0YK6m5AknzreXetgOacKlDjxY7YrC2wlYeatRg==,bnRopy2vo1LpbGLb3buANfOVymDjd5YkTzo12Jic2w7m5xFZ34zRVVCGuJ2TC1SdUasel64zS9f73IzI7jwaVQ==,es256,+presence   
   '';
 
+  environment.shellInit = ''
+    gpg-connect-agent updatestartuptty /bye
+  '';
+
   security.pam = {
     u2f = {
       control = "sufficient";
