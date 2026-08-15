@@ -5,7 +5,7 @@
     enable = true;
     
     settings = {
-      download-dir = "/var/lib/transmission/downloads";
+      download-dir = "/srv/transmission";
     };
   };
 }

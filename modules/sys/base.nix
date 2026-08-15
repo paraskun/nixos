@@ -3,9 +3,6 @@
 {
   time.timeZone = "Asia/Novosibirsk";
 
-  programs.gnupg.agent = {
-    enable = true;
-  };
   programs.zsh = {
     enable = true;
   };
