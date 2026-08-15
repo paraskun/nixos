@@ -10,7 +10,7 @@
         email = "ig.paraskun@gmail.com";
 
         signing = {
-          key = "0x54758D6FE627CB11";
+          key = "54758D6FE627CB11";
           signByDefault = true;
         };
       };
