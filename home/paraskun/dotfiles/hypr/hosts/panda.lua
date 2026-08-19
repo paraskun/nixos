@@ -4,8 +4,8 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output   = "",
+    output   = "HDMI-A-1",
     mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
+    position = "0x0",
+    scale    = "1",
 })

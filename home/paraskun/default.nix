@@ -17,6 +17,8 @@
       ./programs/zsh.nix
       ./programs/git.nix
       ./programs/tmux.nix
+
+      ./services/mako
     ];
 
     programs.home-manager.enable = true;
@@ -28,7 +30,6 @@
         telegram-desktop
         opencode
         lazygit
-        blender
       ];
 
       stateVersion = "26.05";

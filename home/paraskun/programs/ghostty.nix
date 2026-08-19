@@ -10,7 +10,7 @@
 
     settings = {
       font-family = "Monaspace Neon";
-      font-size = 12;
+      font-size = 11;
       foreground = "AAAAAA";
       background = "101010";
       app-notifications = "no-clipboard-copy";

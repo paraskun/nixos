@@ -30,27 +30,31 @@
 
   networking.hostName = hostName;
 
-  # hardware.graphics.enable = true;
-  # services.xserver.videoDrivers = [ "nvidia" ];
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
-  # hardware.nvidia = {
-  #   open = true;
-  #   modesetting.enable = true;
-  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
-  # };
+  services.blueman.enable = true;
 
-  # environment.sessionVariables = {
-  #   GBM_BACKEND = "nvidia-drm";
-  #   __GLX_VENDOR_LIBRARY_NAME = "nvidia";
-  #   LIBVA_DRIVER_NAME = "nvidia";
-  # };
+  hardware.graphics.enable = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-  # boot.initrd.kernelModules = [
-  #   "nvidia"
-  #   "nvidia_modeset"
-  #   "nvidia_drm"
-  #   "nvidia_uvm"
-  # ];
+  hardware.nvidia = {
+    open = true;
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
+
+  environment.sessionVariables = {
+    __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    LIBVA_DRIVER_NAME = "nvidia";
+    QT_QPA_PLATFORM = "wayland;xcb";
+    WLR_NO_HARDWARE_CURSORS = "1";
+  };
 
   system.stateVersion = "26.05";
 }
