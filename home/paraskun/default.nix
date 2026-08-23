@@ -6,6 +6,7 @@
     ./services/syncthing/${os}.nix
     ./services/zapret/${os}.nix
     ./services/gnupg
+    ./services/claude
   ];
 
 
