@@ -50,6 +50,7 @@ hl.bind(mainMod .. " + escape",     hl.dsp.exec_cmd(power))
 hl.bind(mainMod .. " + C",          hl.dsp.window.close())
 hl.bind(mainMod .. " + Space",      hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + M",  hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + Print",      hl.dsp.exec_cmd("grim -g \"$(slurp)\" - | wl-copy"))
 
 hl.bind(mainMod .. " + H", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))

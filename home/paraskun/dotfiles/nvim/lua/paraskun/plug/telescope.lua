@@ -15,11 +15,10 @@ return {
       })
 
       local telescope = require("telescope")
-
       telescope.load_extension("dir")
 
-      vim.keymap.set("n", "<leader>dg", telescope.extensions.dir.live_grep, {})
-      vim.keymap.set("n", "<leader>df", telescope.extensions.dir.find_files, {})
+      vim.keymap.set("n", "<leader>dg", telescope.extensions.dir.live_grep, { silent = true })
+      vim.keymap.set("n", "<leader>df", telescope.extensions.dir.find_files, { silent = true })
     end
   },
   {
@@ -40,7 +39,7 @@ return {
         })
       end, {})
 
-      vim.keymap.set("n", "<leader>pg", telescope.live_grep, {})
+      vim.keymap.set("n", "<leader>pg", telescope.live_grep, { silent = true })
       vim.keymap.set("n", "<leader>fg", function()
         telescope.live_grep({
           search_dirs = { vim.fn.expand("%:p") }

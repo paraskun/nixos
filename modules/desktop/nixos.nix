@@ -14,6 +14,8 @@
     wofi-power-menu
     wl-clipboard
     hyprpicker
+    grim
+    slurp
 
     (blender.override { cudaSupport = true; })
   ];

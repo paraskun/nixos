@@ -11,7 +11,7 @@
     extraPackages = with pkgs; [
       lua-language-server
       nil
-      clang-tools
+      llvmPackages_18.clang-tools
       rust-analyzer
       gopls
       ripgrep
