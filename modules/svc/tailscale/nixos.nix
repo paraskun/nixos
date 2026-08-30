@@ -1,10 +1,6 @@
 { config, ... }:
 
 {
-  imports = [
-    ./base.nix
-  ];
-
   # networking.nftables.enable = true;
   networking.firewall = {
     enable = true;

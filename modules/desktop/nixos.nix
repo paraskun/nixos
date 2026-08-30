@@ -1,10 +1,6 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./base.nix
-  ];
-
   programs.hyprland = {
     enable = true;
   };

@@ -1,27 +1,24 @@
-{ pkgs, os, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
-    ./services/openvpn/${os}.nix
-    ./services/syncthing/${os}.nix
-    ./services/zapret/${os}.nix
+    ./services/openvpn
+    ./services/syncthing
+    ./services/zapret
     ./services/gnupg
-    ./services/claude
+    ./services/notify
+
+    ./programs/claude
+    ./programs/desktop
+    ./programs/browser
+    ./programs/ghostty
+    ./programs/nvim
+    ./programs/git
+    ./programs/tmux
+    ./programs/zsh
   ];
 
-
   home-manager.users.paraskun = {
-    imports = [
-      ./programs/hypr.nix
-      ./programs/ghostty.nix
-      ./programs/nvim.nix
-      ./programs/zsh.nix
-      ./programs/git.nix
-      ./programs/tmux.nix
-
-      ./services/mako
-    ];
-
     programs.home-manager.enable = true;
 
     home = {
@@ -30,7 +27,6 @@
       packages = with pkgs; [
         telegram-desktop
         opencode
-        lazygit
       ];
 
       stateVersion = "26.05";

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, os, ... }:
 
 let
   key = pkgs.fetchurl {
@@ -7,61 +7,26 @@ let
   };
 in
 {
+  imports = [
+    ./${os}.nix
+  ];
+
   environment.etc."u2f_keys".text = ''
   paraskun:GCTH0vCxAj9WjJdJ9ofw4HMgCPHgZ5DSvL5s+Er6Beee687V0YK6m5AknzreXetgOacKlDjxY7YrC2wlYeatRg==,bnRopy2vo1LpbGLb3buANfOVymDjd5YkTzo12Jic2w7m5xFZ34zRVVCGuJ2TC1SdUasel64zS9f73IzI7jwaVQ==,es256,+presence   
   '';
 
-  environment.shellInit = ''
-    gpg-connect-agent updatestartuptty /bye
-  '';
-
-  security.pam = {
-    u2f = {
-      control = "sufficient";
-
-      settings = {
-        interactive = true;
-        pinverification = 1;
-        authfile = "/etc/u2f_keys";
-        origin = "pam://panda";
-      };
-    };
-
-    services = {
-      login = {
-        u2fAuth = true;
-        unixAuth = true;
-      };
-
-      sudo = {
-        u2fAuth = true;
-        unixAuth = true;
-      };
-      
-      physlock = {
-        u2fAuth = true;
-        unixAuth = true;
-      };
-    };
-  };
-
-  services.pcscd.enable = true;
-  services.udev.packages = [ pkgs.yubikey-personalization ];
-
-  services.udev.extraRules = ''
-    ACTION=="remove",\
-      SUBSYSTEM=="usb",\
-      ENV{DEVTYPE}=="usb_device",\
-      ENV{PRODUCT}=="1050/407/*",\
-      RUN+="${pkgs.systemd}/bin/systemctl start physlock.service"
-  '';
-
-  programs.ssh.startAgent = false;
-
   home-manager.users.paraskun = {
+    services.ssh-agent.enable = false;
+
+    services.gpg-agent = {
+      enable = true;
+      enableSshSupport = true;
+      defaultCacheTtl = 60;
+      maxCacheTtl = 300;
+    };
+
     programs.gpg = {
       enable = true;
-
       mutableTrust = false;
 
       publicKeys = [
@@ -90,15 +55,6 @@ in
         use-agent = true;
         keyserver = "hkps://keys.openpgp.org";
       };
-    };
-
-    services.gpg-agent = {
-      enable = true;
-
-      enableSshSupport = true;
-      pinentryPackage = pkgs.pinentry-curses;
-      defaultCacheTtl = 60;
-      maxCacheTtl = 300;
     };
   };
 }

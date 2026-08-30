@@ -1,6 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, os, ... }:
 
 {
+  imports = [
+    ./${os}.nix
+  ];
+
   time.timeZone = "Asia/Novosibirsk";
 
   programs.zsh = {

@@ -1,4 +1,7 @@
 { ... }:
 
 {
+  homebrew = {
+    casks = [ "openvpn-connect" ];
+  };
 }

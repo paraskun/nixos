@@ -2,13 +2,15 @@
 
 {
   imports = [
-    ../../modules/sys/macos.nix
-    ../../modules/svc/ssh.nix
-    ../../modules/svc/tailscale/macos.nix
-    ../../modules/desktop/macos.nix
+    ../../modules/sys
+    ../../modules/svc/ssh
+    ../../modules/svc/tailscale
+    ../../modules/desktop
 
     ../../home/paraskun
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   users.users = {
     paraskun = {
