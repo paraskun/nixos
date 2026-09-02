@@ -23,10 +23,15 @@
 
   outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nix-darwin, rftp }@inputs: {
     homeConfigurations = {
-      cont = home-manager.lib.homeManagerConfiguration {
-	      pkgs = nixpkgs.legacyPackages.x86_64-linux;
+      ltp-n = home-manager.lib.homeManagerConfiguration {
         modules = [
-          ./home/paraskun/cont
+          ./home/paraskun/cont/ltp-n
+        ];
+      };
+
+      ubuntu = home-manager.lib.homeManagerConfiguration {
+        modules = [
+          ./home/paraskun/cont/ubuntu
         ];
       };
     };
