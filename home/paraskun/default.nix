@@ -12,10 +12,8 @@
     ./programs/desktop
     ./programs/browser
     ./programs/ghostty
-    ./programs/nvim
     ./programs/git
     ./programs/tmux
-    ./programs/zsh
   ];
 
   home-manager.users.paraskun = {
@@ -31,5 +29,10 @@
 
       stateVersion = "26.05";
     };
+
+    imports = [
+      ./programs/nvim
+      ./programs/zsh
+    ];
   };
 }
