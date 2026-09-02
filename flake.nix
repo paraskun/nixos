@@ -23,13 +23,29 @@
 
   outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nix-darwin, rftp }@inputs: {
     homeConfigurations = {
-      ltp-n = home-manager.lib.homeManagerConfiguration {
+      "ltp-n@amd" = home-manager.lib.homeManagerConfiguration {
+      	pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home/paraskun/cont/ltp-n
         ];
       };
 
-      ubuntu = home-manager.lib.homeManagerConfiguration {
+      "ltp-n@arm" = home-manager.lib.homeManagerConfiguration {
+      	pkgs = nixpkgs.legacyPackages.aarch64-linux;
+        modules = [
+          ./home/paraskun/cont/ltp-n
+        ];
+      };
+
+      "ubuntu@amd" = home-manager.lib.homeManagerConfiguration {
+      	pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+          ./home/paraskun/cont/ubuntu
+        ];
+      };
+
+      "ubuntu@arm" = home-manager.lib.homeManagerConfiguration {
+      	pkgs = nixpkgs.legacyPackages.aarch64-linux;
         modules = [
           ./home/paraskun/cont/ubuntu
         ];
