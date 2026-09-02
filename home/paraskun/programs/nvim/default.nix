@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   programs.neovim = {
@@ -20,6 +20,6 @@
   };
 
   xdg.configFile."nvim" = {
-    source = ../../dotfiles/nvim;
+    source = config.lib.file.mkOutOfStoreSymlink ../../dotfiles/nvim;
   };
 }
