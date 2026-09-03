@@ -16,4 +16,7 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("paraskun.plug")
+require("lazy").setup({
+  spec = { { import = "paraskun.plug" } },
+  lockfile = vim.fn.stdpath("data") .. "/lazy-lock.json",
+})
