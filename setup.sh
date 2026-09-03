@@ -5,7 +5,7 @@ if [ ! -d "/nix" ]; then
     | sh -s -- --no-daemon
 fi
 
-. ~/.nix-profile/etc/profile.d/nix.sh
+export PATH=$HOME/.nix-profile/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:$PATH
 
-NIX_CONFIG="experimental-features = nix-command flakes" nix \
-  run home-manager -- switch --flake .#$1
+NIX_CONFIG="experimental-features = nix-command flakes" \
+  nix run home-manager -- switch --flake .#$1
