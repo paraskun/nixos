@@ -22,9 +22,21 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nix-darwin, rftp }@inputs: {
-    imports = [
-      ./container
-    ];
+    homeConfiguration = {
+      "container@amd" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        modules = [
+          ./home/paraskun/container
+        ];
+      };
+
+      "container@arm" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.aarch64-linux;
+        modules = [
+          ./home/paraskun/container
+        ];
+      };
+    };
 
     nixosConfigurations = {
       panda = nixpkgs.lib.nixosSystem rec {
