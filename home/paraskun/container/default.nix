@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ../../programs/nvim
-    ../../programs/zsh
+    ../programs/nvim
+    ../programs/zsh
   ];
 
   home = {
