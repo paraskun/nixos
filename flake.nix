@@ -23,14 +23,14 @@
 
   outputs = { self, nixpkgs, nixpkgs-darwin, home-manager, nix-darwin, rftp }@inputs: {
     homeConfigurations = {
-      "container@amd" = home-manager.lib.homeManagerConfiguration {
+      "container@amd64" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux;
         modules = [
           ./home/paraskun/container
         ];
       };
 
-      "container@arm" = home-manager.lib.homeManagerConfiguration {
+      "container@arm64" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.aarch64-linux;
         modules = [
           ./home/paraskun/container
