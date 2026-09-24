@@ -4,13 +4,13 @@
   imports = [
     ./hardware.nix
 
-    ../../modules/sys/nixos.nix
-    ../../modules/svc/ssh.nix
-    # ../../modules/svc/rftp/nixos.nix
-    ../../modules/svc/tailscale/nixos.nix
-    ../../modules/svc/sing-box/nixos.nix
-    ../../modules/svc/transmission/nixos.nix
-    ../../modules/desktop/nixos.nix
+    ../../modules/sys
+    ../../modules/desktop
+
+    ../../modules/svc/ssh
+    ../../modules/svc/tailscale
+    ../../modules/svc/sing-box
+    ../../modules/svc/transmission
 
     ../../home/paraskun
   ];
@@ -22,7 +22,11 @@
         "wheel"
         "networkmanager"
         "docker"
+        "incus-admin"
         "rftp"
+        "transmission"
+        "input"
+        "uinput"
       ];
       shell = pkgs.zsh;
     };
@@ -48,6 +52,8 @@
     nvidiaSettings = true;
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
+  hardware.uinput.enable = true;
 
   environment.sessionVariables = {
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";

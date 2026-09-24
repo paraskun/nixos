@@ -13,6 +13,6 @@ in
   };
 
   systemd.tmpfiles.rules = [
-    "z ${dir} 0730 root users - -"
+    "d ${dir} 0750 transmission transmission - -"
   ];
 }

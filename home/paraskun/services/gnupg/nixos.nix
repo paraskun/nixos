@@ -2,7 +2,7 @@
 
 {
   environment.shellInit = ''
-    gpg-connect-agent updatestartuptty /bye
+    gpg-connect-agent updatestartuptty /bye >/dev/null
   '';
 
   services.pcscd.enable = true;
@@ -38,15 +38,9 @@
     };
   };
 
-  services.gpg-agent = {
-    pinentryPackage = pkgs.pinentry-curses;
+  home-manager.users.paraskun = {
+    services.gpg-agent = {
+      pinentryPackage = pkgs.pinentry-curses;
+    };
   };
-
-  services.udev.extraRules = ''
-    ACTION=="remove",\
-      SUBSYSTEM=="usb",\
-      ENV{DEVTYPE}=="usb_device",\
-      ENV{PRODUCT}=="1050/407/*",\
-      RUN+="${pkgs.systemd}/bin/systemctl start physlock.service"
-  '';
 }

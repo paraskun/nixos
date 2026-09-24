@@ -20,5 +20,6 @@
     pass
     btop
     socat
+    mouseless
   ];
 }

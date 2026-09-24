@@ -4,7 +4,6 @@
   imports = [
     ./services/openvpn
     ./services/syncthing
-    ./services/zapret
     ./services/gnupg
     ./services/notify
 
@@ -15,6 +14,8 @@
     ./programs/git
     ./programs/tmux
   ];
+
+  nixpkgs.config.allowUnfree = true;
 
   home-manager.users.paraskun = {
     programs.home-manager.enable = true;
@@ -33,6 +34,7 @@
     imports = [
       ./programs/nvim
       ./programs/zsh
+      ./programs/mouseless
     ];
   };
 }

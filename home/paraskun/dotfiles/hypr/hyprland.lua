@@ -37,6 +37,10 @@ hl.config({
     cursor = {
       no_hardware_cursors = true,
     },
+
+    general = {
+      gaps_out = 5;
+    },
 })
 
 
